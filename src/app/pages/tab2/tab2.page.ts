@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
-import { PhotoService, UserPhoto } from '../services/photo.service';
+import { PhotoService, UserPhoto } from '../../services/photo.service';
 
 @Component({
   selector: 'app-tab2',

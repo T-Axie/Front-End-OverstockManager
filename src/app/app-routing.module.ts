@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule),
     canLoad: [AuthGuard]
   },
   {
@@ -23,7 +23,11 @@ const routes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
+  },  {
+    path: 'forgot-password',
+    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   }
+
 ];
 @NgModule({
   imports: [
