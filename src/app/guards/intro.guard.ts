@@ -11,7 +11,7 @@ import { Preferences } from '@capacitor/preferences';
 @Injectable({
   providedIn: 'root'
 })
-export class Intro3Guard implements CanLoad {
+export class IntroGuard implements CanLoad {
   constructor(private router: Router) {}
 
   async canLoad(): Promise<boolean>  {

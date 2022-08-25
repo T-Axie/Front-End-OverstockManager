@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonSlides} from '@ionic/angular';
 import {Preferences} from '@capacitor/preferences';
-import {INTRO_KEY} from '../../guards/intro3.guard';
+import {INTRO_KEY} from '../../guards/intro.guard';
 import {Router} from '@angular/router';
 
 @Component({
