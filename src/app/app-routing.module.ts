@@ -23,9 +23,14 @@ const routes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'forgot-password',
     loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  }
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.ForgotPasswordPageModule)
   }
 
 ];

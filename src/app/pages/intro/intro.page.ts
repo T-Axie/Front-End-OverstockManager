@@ -22,7 +22,7 @@ export class IntroPage implements OnInit {
   }
   async start() {
     await Preferences.set({key: INTRO_KEY, value: 'true'});
-    await this.router.navigateByUrl('/login', {replaceUrl: true});
+    await this.router.navigateByUrl('/register', {replaceUrl: true});
   }
 
 }
