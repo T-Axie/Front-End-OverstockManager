@@ -8,7 +8,7 @@ const routes: Routes = [
   {
   path: 'login',
   loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
-    canLoad: [IntroGuard, AutoLoginGuard]
+    canLoad: [AutoLoginGuard]
   },
   {
     path: 'tabs',
@@ -20,13 +20,24 @@ const routes: Routes = [
     loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
   },
   {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule),
+    canLoad: [IntroGuard]
+  },
+  {
+    path: 'registration',
+    loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
+  },
+  {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/register',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'forgot-password',
     loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   }
+
 
 ];
 @NgModule({
