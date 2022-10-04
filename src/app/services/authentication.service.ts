@@ -35,6 +35,9 @@ export class AuthenticationService {
       })
     );
   }
+  register(credentials: {email; password}): Observable<any> {
+    return  this.http.post('https://reqres.in/api/register', credentials);
+  }
   logout(): Promise<void> {
     this.isAuthenticated.next(false);
     return Preferences.remove({key: TOKEN_KEY});

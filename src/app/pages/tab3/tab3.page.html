@@ -1,16 +1,86 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      My Profile
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Profile</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button color="tertiary"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+    <ion-content>
+      <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-col size-xl="3" size-sm="12">
+        <div class="header">
+          <h2>Email@net.com</h2>
 
-<ion-content>
+          <div class="space-between">
+            <div class="followings">
+              <ion-badge color="primary" mode="ios">1269</ion-badge>
+              <p>Cards</p>
+            </div>
 
-</ion-content>
-<ion-tabs>
-<ion-tab-bar slot="bottom">
-  <ion-button expand="full" (click)="logout()">Logout</ion-button>
-</ion-tab-bar>
-</ion-tabs>
+            <div class="followings">
+              <ion-badge color="primary" mode="ios">3</ion-badge>
+              <p>Collection</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="flex">
+          <div class="border-blue">
+            <div class="border-white">
+              <div class="img-box">
+                <img src="../../assets/therence.png">
+              </div>
+            </div>
+          </div>
+        </div>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>About me</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              Keep close to Nature's heart... and break clear away, once in awhile,
+              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-item>
+              <ion-icon name="map-outline" slot="start"></ion-icon>
+              <ion-label>Somewhere</ion-label>
+              <ion-button fill="outline" slot="end">Edit</ion-button>
+            </ion-item>
+
+            <ion-card-content>
+              This localisation will be use for search another member beside of you.
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Utility links</ion-card-subtitle>
+            </ion-card-header>
+            <ion-item class="ion-activated">
+              <ion-icon name="link-outline" slot="start"></ion-icon>
+              <ion-label><a href="https://www.cardmarket.com/">CardMarket</a></ion-label>
+            </ion-item>
+
+            <ion-item  class="ion-activated">
+              <ion-icon name="link-outline" slot="start"></ion-icon>
+              <ion-label><a href="https://www.tcgplayer.com/">TCGPlayer</a></ion-label>
+            </ion-item>
+
+            <ion-item href="" class="ion-activated">
+              <ion-icon name="link-outline" slot="start"></ion-icon>
+              <ion-label><a href="https://strategy.channelfireball.com/all-strategy/magic/">ChannelFireBall</a></ion-label>
+            </ion-item>
+
+            <ion-item href="" class="ion-activated">
+              <ion-icon name="link-outline" slot="start"></ion-icon>
+              <ion-label><a href="https://strategy.channelfireball.com/all-strategy/magic/">MTGTop8</a></ion-label>
+            </ion-item>
+          </ion-card>
+      </ion-col>
+      </ion-row>
+    </ion-content>

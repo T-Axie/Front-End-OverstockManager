@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+
 
 
 @Component({
@@ -9,6 +11,5 @@ import { Component } from '@angular/core';
 export class Tab1Page {
 
   constructor() {}
-
 
 }
