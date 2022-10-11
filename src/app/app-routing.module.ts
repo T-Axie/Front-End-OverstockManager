@@ -37,10 +37,6 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
-  {
-    path: 'contactus',
-    loadChildren: () => import('./pages/contactus/contactus.module').then( m => m.ContactusPageModule)
-  },
 
 ];
 @NgModule({
