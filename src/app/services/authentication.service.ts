@@ -28,7 +28,7 @@ export class AuthenticationService {
   }
   login(credentials: {email; password}): Observable<any> {
     // http://localhost:8080/swagger-ui/index.html#/user-controller/login
-    return  this.http.post('https://reqres.in/api/login', credentials).pipe(
+    return  this.http.post('http://localhost:8080/user/login', credentials).pipe(
       map((data: any) => data.token),
       switchMap (token => from(Preferences.set({key: TOKEN_KEY, value: token}))),
       tap(_ => {
