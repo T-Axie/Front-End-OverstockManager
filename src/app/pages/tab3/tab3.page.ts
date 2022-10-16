@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {UserService} from "../../services/user.service";
+import {IUser} from "../Model/IUser";
 
 @Component({
   selector: 'app-tab3',
@@ -7,18 +9,15 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  user: any | null = null;
 
-  constructor(public http: HttpClient) {
-    this.readAPI('http://localhost:8080/swagger-ui/index.html#/user-controller/getOne/1')
-      .subscribe((data) => {
+  constructor(public http: HttpClient, private userService: UserService) {
+
+    this.userService.getUser().subscribe({
+      next:data => {
+        this.user = data;
         console.log(data);
-      })
-    ;
-  }
-
-
-
-  readAPI(url: string) {
-    return this.http.get(url);
+      }
+    });
   }
 }

@@ -3,6 +3,7 @@ import { Preferences } from '@capacitor/preferences';
 import {BehaviorSubject, from, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {map, switchMap, tap} from 'rxjs/operators';
+
 const TOKEN_KEY = 'my-token';
 
 @Injectable({
@@ -14,7 +15,6 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     this.loadToken();
   }
-
   async loadToken() {
     const token = await Preferences.get({key: TOKEN_KEY});
     if (token && token.value) {
@@ -27,9 +27,9 @@ export class AuthenticationService {
     }
   }
   login(credentials: {email; password}): Observable<any> {
-    // http://localhost:8080/swagger-ui/index.html#/user-controller/login
-    return  this.http.post('http://localhost:8080/user/login', credentials).pipe(
-      map((data: any) => data.token),
+    return  this.http.post( 'http://localhost:8080/user/login', credentials)
+      .pipe(
+      map((data: any) => data.key),
       switchMap (token => from(Preferences.set({key: TOKEN_KEY, value: token}))),
       tap(_ => {
         this.isAuthenticated.next(true);
@@ -37,8 +37,7 @@ export class AuthenticationService {
     );
   }
   register(credentials: {email; password}): Observable<any> {
-    // http://localhost:8080/swagger-ui/index.html#/user-controller/createUser
-    return  this.http.post('https://reqres.in/api/register', credentials);
+    return  this.http.post('http://localhost:8080/user/register', credentials);
   }
   logout(): Promise<void> {
     this.isAuthenticated.next(false);

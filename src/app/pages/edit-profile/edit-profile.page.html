@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ionic Forms</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row class="ion-justify-content-center ion-align-items-center">
+    <ion-col size-xl="3" size-sm="12">
+  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+    <ion-item lines="full">
+      <ion-label position="floating">Username</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
+      Name is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.minlength">
+      Name should be min 2 chars long.
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Description</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+      Email is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+      Please provide valid email id.
+    </span>
+    <ion-button color="tertiary" id="upload_widget" class="cloudinary-button" (click)="cloudinaryGo()" >Upload picture</ion-button>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="success" expand="block">Update</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>

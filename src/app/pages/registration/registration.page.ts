@@ -13,7 +13,7 @@ import {AlertController, LoadingController} from "@ionic/angular";
 export class RegistrationPage implements OnInit {
   credentials: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(5)])
+    password: new FormControl(null, [Validators.required, Validators.minLength(4)])
   });
   constructor(
     private fb: FormBuilder,
