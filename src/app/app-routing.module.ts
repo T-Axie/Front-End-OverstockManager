@@ -40,6 +40,10 @@ const routes: Routes = [
     path: 'edit-profile',
     loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
+  {
+    path: 'create-collec',
+    loadChildren: () => import('./pages/create-collec/create-collec.module').then( m => m.CreateCollecPageModule)
+  },
 
 
 ];

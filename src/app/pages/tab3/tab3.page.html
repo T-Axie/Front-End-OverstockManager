@@ -10,7 +10,7 @@
       <ion-row class="ion-justify-content-center ion-align-items-center">
         <ion-col size-xl="3" size-sm="12">
         <div class="header">
-          <h2>{{user?.email}}</h2>
+          <h2>{{user?.username}}</h2>
 
           <div class="space-between">
             <div class="followings">
@@ -29,7 +29,7 @@
           <div class="border-blue">
             <div class="border-white">
               <div class="img-box">
-                <img src="../../assets/therence.png">
+                <img src="{{user?.urlimage}}">
               </div>
             </div>
           </div>
@@ -40,8 +40,7 @@
             </ion-card-header>
 
             <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+              {{user?.description}}
             </ion-card-content>
           </ion-card>
 
@@ -82,6 +81,6 @@
             </ion-item>
           </ion-card>
           <ion-button type="submit" color="success" expand="block" [routerLink]="['/edit-profile']"> Edit Profile</ion-button>
-      </ion-col>
+       </ion-col>
       </ion-row>
     </ion-content>

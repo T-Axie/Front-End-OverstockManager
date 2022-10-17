@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {UserService} from "../../services/user.service";
-import {IUser} from "../Model/IUser";
+
 
 @Component({
   selector: 'app-tab3',
@@ -9,14 +9,12 @@ import {IUser} from "../Model/IUser";
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  user: any | null = null;
+  user: any | null;
 
   constructor(public http: HttpClient, private userService: UserService) {
-
     this.userService.getUser().subscribe({
       next:data => {
         this.user = data;
-        console.log(data);
       }
     });
   }

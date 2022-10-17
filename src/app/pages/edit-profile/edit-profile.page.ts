@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../../services/user.service';
+import {Router} from "@angular/router";
 declare let cloudinary: any ;
 
 @Component({
@@ -10,40 +12,42 @@ declare let cloudinary: any ;
 export class EditProfilePage implements OnInit {
   ionicForm: FormGroup;
   isSubmitted = false;
-  constructor(public formBuilder: FormBuilder) { }
+  constructor(public formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required]],
-      mobile: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+      username: ['', [Validators.required, Validators.minLength(2)]],
+      description: ['', [Validators.required]],
+      urlimage: ['../../assets/therence.png', [Validators.required]]
     });
   }
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  get errorControl() {
-    return this.ionicForm.controls;
-  }
+
   submitForm() {
     this.isSubmitted = true;
     if (!this.ionicForm.valid) {
       console.log('Please provide all the required values!');
       return false;
     } else {
-      console.log(this.ionicForm.value);
+      this.userService.update(this.ionicForm.value).subscribe(
+        () => {
+          this.router.navigate(['tabs/account']);
+        },
+        error => this.router.navigate(['tabs/account'])
+      );
     }
   }
   cloudinaryGo(){
     const myWidget = cloudinary.createUploadWidget(
       {
         cloudName: 'dbh5ogmne',
-        uploadPreset: '<YOUR_PRESET>'
+        uploadPreset: 'imgupload'
       },
       (error: any, result: any) => {
         if (!error && result && result.event === 'success') {
-          this.ionicForm.patchValue({image: result.info.url});
+          this.ionicForm.patchValue({urlimage: result.info.url});
+          console.log(this.ionicForm);
         }
       }
     );
-
     myWidget.open();
   }
 }
